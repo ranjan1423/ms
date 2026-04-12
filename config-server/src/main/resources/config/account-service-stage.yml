@@ -1,0 +1,4 @@
+build-info:
+  environment: "stage"
+  version: "account-service : 1.1.1"
+  features: "create an account for user, modify account data for user, delete account of user"

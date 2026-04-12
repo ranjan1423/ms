@@ -1,0 +1,60 @@
+############ entry to workspace
+sudo su
+
+cd /
+cd mnt/d/__ms/
+
+
+
+## start docker when ubuntu started.
+update-alternatives --set iptables /usr/sbin/iptables-legacy
+update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+
+## start service
+service docker start
+
+## list all service with status
+service --status-all
+
+## pull mysql image to local docker repo from docker hub.
+docker pull mysql:8.4.8
+
+## create network
+docker network create ms_net
+
+## create Java app image to local docker repo.
+docker build --no-cache -t account-service_i:1.0 .
+
+## create Java app image to local docker repo.
+docker build --no-cache -t card-service_i:1.0 .
+
+## create Java app image to local docker repo.
+docker build --no-cache -t loan-service_i:1.0 .
+
+## build image by maven without dockerfile and logs are stored in file.
+mvn clean spring-boot:build-image -DskipTests 2>&1 | tee /mnt/d/_ms/build.log &
+
+## list image repo
+docker image ls
+
+
+
+
+
+################################ running container from images
+
+## running mysql using docker and with volume ##################
+docker run -d -p 3306:3306 --name mysql_c -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=account_db -v mysql_data:/var/lib/mysql --network ms_net  mysql:8.4.8
+
+
+## starting new container (spring boot app)
+docker run -p 8081:8081 --name account-service_c --network ms_net account-service_i:1.0
+
+################################# running with docker compose
+
+docker compose up
+
+docker compose logs
+
+
+docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4-management

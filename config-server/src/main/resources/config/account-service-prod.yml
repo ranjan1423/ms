@@ -1,0 +1,4 @@
+build-info:
+  environment: "prod"
+  version: "account-service : 1.0"
+  features: "create an account for user, modify account data for user, delete account of user"

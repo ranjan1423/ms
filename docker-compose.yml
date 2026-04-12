@@ -1,0 +1,71 @@
+
+services:
+
+  account-service:
+    build: ./account-service
+    image: account-service_i:1.0
+    container_name: account-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql-as
+    networks:
+      - ms_net
+
+  card-service:
+    build: ./card-service
+    image: card-service_i:1.0
+    container_name: card-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql-cs
+    networks:
+      - ms_net
+
+  loan-service:
+    build: ./loan-service
+    image: loan-service_i:1.0
+    container_name: loan-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - mysql-ls
+    networks:
+      - ms_net
+
+  mysql-as:
+    image: mysql:8.4.8
+    container_name: mysql_as
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: account_db
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - ms_net
+
+  mysql-cs:
+    image: mysql:8.4.8
+    container_name: mysql_cs
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_DATABASE: card_db
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - ms_net
+
+  mysql-ls:
+    image: mysql:8.4.8
+    container_name: mysql_ls
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_DATABASE: loan_db
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - ms_net
+
+networks:
+  ms_net:

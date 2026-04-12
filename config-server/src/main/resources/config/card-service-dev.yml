@@ -1,0 +1,6 @@
+build-info:
+  environment: "dev"
+  version: "card-service : 1.1.2"
+  features: "create an card for user, modify card data for user, delete card of user"
+
+

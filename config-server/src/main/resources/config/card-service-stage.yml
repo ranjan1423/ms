@@ -1,0 +1,5 @@
+build-info:
+  environment: "stage"
+  version: "card-service : 1.1.1"
+  features: "create an card for user, modify card data for user, delete card of user"
+
