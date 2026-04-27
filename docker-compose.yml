@@ -1,71 +1,196 @@
-
 services:
+  ####################################################################################################
+  # Config Server : based on local classpath configuration.
+  ####################################################################################################
+  config-server:
+    build: ./config-server
+    image: config-server:1.0
+    container_name: config-server
+    ports:
+      - "8071:8071"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8071/actuator/health"]
+      interval: 10s
+      retries: 5
+    extends:
+      file: common-config.yml
+      service: ms-base-config
 
+  ####################################################################################################
+  # Discovery Server
+  ####################################################################################################
+  eureka-server:
+    build: ./eureka-server
+    image: eureka-server:1.0
+    container_name: eureka-server
+    ports:
+      - "8070:8070"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8070/actuator/health"]
+      interval: 10s
+      retries: 5
+    depends_on:
+      config-server:
+        condition: service_healthy
+    extends:
+      file: common-config.yml
+      service: ms-configserver-config
+
+  ####################################################################################################
+  # api-gateway
+  ####################################################################################################
+  api-gateway:
+    build: ./api-gateway
+    image: api-gateway:1.0
+    container_name: api-gateway
+    ports:
+      - "8072:8072"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8072/actuator/health"]
+      interval: 10s
+      retries: 5
+    depends_on:
+      account-service:
+        condition: service_healthy
+      card-service:
+        condition: service_healthy
+      loan-service:
+        condition: service_healthy
+    extends:
+      file: common-config.yml
+      service: ms-all-config
+
+  ####################################################################################################
+  # Account Service
+  ####################################################################################################
   account-service:
     build: ./account-service
-    image: account-service_i:1.0
+    image: account-service:1.0
     container_name: account-service
     ports:
       - "8081:8081"
     depends_on:
-      - mysql-as
-    networks:
-      - ms_net
+      as-db:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8081/actuator/health" ]
+      interval: 30s
+      retries: 5
+    extends:
+      file: common-config.yml
+      service: ms-eurekaserver-config
 
+  ####################################################################################################
+  # Card Service
+  ####################################################################################################
   card-service:
     build: ./card-service
-    image: card-service_i:1.0
+    image: card-service:1.0
     container_name: card-service
     ports:
       - "8082:8082"
     depends_on:
-      - mysql-cs
-    networks:
-      - ms_net
+      cs-db:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8082/actuator/health" ]
+      interval: 30s
+      retries: 5
+    extends:
+      file: common-config.yml
+      service: ms-eurekaserver-config
 
+  ####################################################################################################
+  # Loan Service
+  ####################################################################################################
   loan-service:
     build: ./loan-service
-    image: loan-service_i:1.0
+    image: loan-service:1.0
     container_name: loan-service
     ports:
       - "8083:8083"
     depends_on:
-      - mysql-ls
-    networks:
-      - ms_net
+      ls-db:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8083/actuator/health" ]
+      interval: 30s
+      retries: 5
+    extends:
+      file: common-config.yml
+      service: ms-eurekaserver-config
 
-  mysql-as:
+  ####################################################################################################
+  # Databases for account service
+  ####################################################################################################
+  as-db:
     image: mysql:8.4.8
-    container_name: mysql_as
+    container_name: as-db
     ports:
       - "3307:3306"
     environment:
       MYSQL_DATABASE: account_db
       MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      retries: 5
     networks:
       - ms_net
+    volumes:
+      - as_db_data:/var/lib/mysql
 
-  mysql-cs:
+  ####################################################################################################
+  # Databases for card service
+  ####################################################################################################
+  cs-db:
     image: mysql:8.4.8
-    container_name: mysql_cs
+    container_name: cs-db
     ports:
       - "3308:3306"
     environment:
       MYSQL_DATABASE: card_db
       MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      retries: 5
     networks:
       - ms_net
+    volumes:
+      - cs_db_data:/var/lib/mysql
 
-  mysql-ls:
+  ####################################################################################################
+  # Databases for loan service
+  ####################################################################################################
+  ls-db:
     image: mysql:8.4.8
-    container_name: mysql_ls
+    container_name: ls-db
     ports:
       - "3309:3306"
     environment:
       MYSQL_DATABASE: loan_db
       MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      retries: 5
     networks:
       - ms_net
+    volumes:
+      - ls_db_data:/var/lib/mysql
 
+####################################################################################################
+# network for all services.
+####################################################################################################
 networks:
   ms_net:
+    driver: bridge
+
+####################################################################################################
+# volume.
+####################################################################################################
+volumes:
+  as_db_data:
+  cs_db_data:
+  ls_db_data:

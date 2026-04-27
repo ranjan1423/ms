@@ -21,11 +21,6 @@ public class AccountController {
 
     private final IAccountService iAccountService;
 
-    @GetMapping
-    public String ping() {
-        return "ping called.";
-    }
-
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> createAccount(@Valid @RequestBody CustomerRequestDTO customerRequestDTO) {
         iAccountService.createAccount(customerRequestDTO);

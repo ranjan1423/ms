@@ -1,0 +1,4 @@
+spring:
+  # get configuration from Config server
+  config:
+    import: "configserver:http://localhost:8071/"

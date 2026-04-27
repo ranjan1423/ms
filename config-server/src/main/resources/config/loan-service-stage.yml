@@ -1,5 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:mysql://ls-db:3306/loan_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+
 build-info:
   environment: "stage"
   version: "loan-service : 1.1.1"
-  features: "create loan ac for user, modify locan ac data for user, delete loan ac of user"
+  features: "create loan ac for user, modify local ac data for user, delete loan ac of user"
 
+# discovery server configuration.
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka-server:8070/eureka/

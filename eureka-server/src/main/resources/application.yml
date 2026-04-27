@@ -1,0 +1,53 @@
+server:
+  port: 8070
+
+spring:
+  application:
+    name: eureka-server
+
+  profiles:
+    active: dev
+
+  # this configuration will be used to re-try for config-server.
+  cloud:
+    config:
+      fail-fast: false
+      retry:
+        initial-interval: 3000
+        multiplier: 1.5
+        max-interval: 10000
+        max-attempts: 10
+
+##################################################
+# Actuator Properties
+##################################################
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+    # used for graceful shutdown using : http://{{service-name}}/actuator/shutdown
+    shutdown:
+      access: unrestricted
+
+  # actuator/health : http://{{service-name}}/actuator/health
+  health:
+    ping:
+      enabled: true
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+
+# enabling logging for Debug
+logging:
+  level:
+    com:
+      ms:
+        apigateway: DEBUG
+

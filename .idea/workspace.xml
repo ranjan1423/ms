@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a084f4b9-2bc5-4531-b9fa-a0a041df5256" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/dto/CardDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/dto/CustomerDetailsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/dto/LoansDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/service/client/CardsFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/service/client/LoansFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/resources/application-stage.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/card-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/card-service/src/main/resources/application-stage.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/eureka-server-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/eureka-server-stage.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/src/main/java/com/ms/eurekaserver/EurekaServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application-stage.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eureka-server/src/test/java/com/ms/eurekaserver/EurekaServerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loan-service/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loan-service/src/main/resources/application-stage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/AccountServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/AccountServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/controller/UtilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/controller/UtilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/mapper/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/ms/account/mapper/CustomerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card-service/src/main/java/com/ms/card/controller/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/java/com/ms/card/controller/CardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card-service/src/main/java/com/ms/card/controller/UtilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/java/com/ms/card/controller/UtilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/account-service-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/account-service-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/account-service-prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/account-service-stage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/account-service-stage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/account-service.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/card-service-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/card-service-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/card-service-prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/card-service-stage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/card-service-stage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/card-service.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/loan-service-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/loan-service-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/loan-service-prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/loan-service-stage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/loan-service-stage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/loan-service.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker cmd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker cmd.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/ms/loan/controller/LoansController.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/ms/loan/controller/LoansController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/ms/loan/controller/UtilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/ms/loan/controller/UtilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="3BnzGP7kgMI6XsVfULS5cwP2k6r" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.docker-compose.yml.card-service: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.ls-db: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Maven.account-service [clean].executor": "Run",
+    "Maven.account-service [install].executor": "Run",
+    "Maven.api-gateway [clean].executor": "Run",
+    "Maven.api-gateway [install].executor": "Run",
+    "Maven.card-service [clean].executor": "Run",
+    "Maven.config-server [clean].executor": "Run",
+    "Maven.config-server [install].executor": "Run",
+    "Maven.eureka-server [clean].executor": "Run",
+    "Maven.eureka-server [install].executor": "Run",
+    "Maven.gateway-server [clean].executor": "Run",
+    "Maven.gateway-server [install].executor": "Run",
+    "Maven.microservice [clean].executor": "Run",
+    "Maven.microservice [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "New/updated database configurations found",
+    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.AccountServiceApplication.executor": "Run",
+    "Spring Boot.ApiGatewayApplication.executor": "Run",
+    "Spring Boot.CardServiceApplication.executor": "Run",
+    "Spring Boot.ConfigServerApplication.executor": "Run",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.LoanServiceApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/__ms/ms",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\__ms\ms_\config-server\src\main\resources\config" />
+      <recent name="D:\__ms\ms_\api-gateway" />
+      <recent name="D:\__ms\ms_\api-gateway\src\main\resources" />
+      <recent name="D:\__ms\ms_" />
+      <recent name="D:\__ms\ms_\loan-service\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ms.apigateway.filter" />
+      <recent name="com.ms.account.service.impl" />
+      <recent name="com.ms.account.service" />
+      <recent name="com.ms.account.controller" />
+      <recent name="com.ms.account.service.client" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+        <option value="docker-deploy" />
+      </set>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="AccountServiceApplication" value="STOPPED" />
+              <entry key="ApiGatewayApplication" value="STOPPED" />
+              <entry key="CardServiceApplication" value="STOPPED" />
+              <entry key="ConfigServerApplication" value="STOPPED" />
+              <entry key="EurekaServerApplication" value="STOPPED" />
+              <entry key="LoanServiceApplication" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+    <configuration name="AccountServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="account-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ms.account.AccountServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ms.apigateway.ApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CardServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="card-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ms.card.CardServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="config-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ms.configserver.ConfigServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ms.eurekaserver.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoanServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="loan-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ms.loan.LoanServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
+      <deployment type="docker-image">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.card-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="card-service" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.ls-db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="ls-db" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.card-service: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.ls-db: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\ranja\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a084f4b9-2bc5-4531-b9fa-a0a041df5256" name="Changes" comment="" />
+      <created>1775139526787</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775139526787</updated>
+      <workItem from="1775139528367" duration="5175000" />
+      <workItem from="1775145005269" duration="118054000" />
+      <workItem from="1776773111416" duration="59125000" />
+      <workItem from="1777107682651" duration="3542000" />
+      <workItem from="1777117016758" duration="1645000" />
+      <workItem from="1777269774700" duration="605000" />
+      <workItem from="1777272655068" duration="12000" />
+      <workItem from="1777273415756" duration="654000" />
+      <workItem from="1777274192338" duration="373000" />
+      <workItem from="1777275686315" duration="4180000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

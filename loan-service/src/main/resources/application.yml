@@ -9,23 +9,14 @@ spring:
   profiles:
     active: dev
 
-  config:
-    import: "optional:configserver:http://localhost:8071/"
-
-  cloud:
-    config:
-      fail-fast: true
-      retry:
-        initial-interval: 1000
-        max-attempts: 10
-        multiplier: 2
-
   datasource:
-    url: jdbc:mysql://mysql_ls:3306/loan_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
 
+  ##################################################
+  # JPA Properties
+  ##################################################
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
@@ -35,8 +26,47 @@ spring:
       hibernate:
         format_sql: true
 
+
+##################################################
+# Actuator Properties
+##################################################
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+    # used for graceful shutdown using : http://{{service-name}}/actuator/shutdown
+    shutdown:
+      access: unrestricted
+
+  # actuator/health : http://{{service-name}}/actuator/health
+  health:
+    ping:
+      enabled: true
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+
+  # enable ifo for actuator/info
+  info:
+    env:
+      enabled: true
+
+# actuator/info : http://{{service-name}}/actuator/info
+info:
+  app:
+    name: "loans"
+    description: "Loans application"
+
+# enabling logging for Debug
+logging:
+  level:
+    com:
+      ms:
+        loan: DEBUG

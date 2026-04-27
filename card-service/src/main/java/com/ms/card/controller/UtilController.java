@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UtilController {
 
+    @GetMapping("/ping")
+    public String ping() {
+        return "ping : card-service";
+    }
+
     @Value("${build-info.version}")
     private String version;
 

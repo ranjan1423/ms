@@ -1,0 +1,9 @@
+# discovery server configuration.
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka-server:8070/eureka/

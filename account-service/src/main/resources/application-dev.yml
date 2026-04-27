@@ -1,0 +1,14 @@
+spring:
+  # get configuration from Config server
+  config:
+    import: "configserver:http://localhost:8071/"
+
+  # this config will try for config server to respond and get the cache data.
+  cloud:
+    config:
+      fail-fast: true
+      retry:
+        multiplier: 2
+        max-attempts: 20
+        initial-interval: 2000
+        max-interval: 50000

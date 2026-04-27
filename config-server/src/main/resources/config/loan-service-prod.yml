@@ -1,5 +1,0 @@
-build-info:
-  environment: "prod"
-  version: "loan-service : 1.0.0"
-  features: "create loan ac for user, modify locan ac data for user, delete loan ac of user"
-

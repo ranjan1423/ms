@@ -5,16 +5,13 @@ cd /
 cd mnt/d/__ms/
 
 
-
-## start docker when ubuntu started.
-update-alternatives --set iptables /usr/sbin/iptables-legacy
-update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+-----------------------------------------------------------------------------------
+## list all service with status
+service --status-all
 
 ## start service
 service docker start
-
-## list all service with status
-service --status-all
+-----------------------------------------------------------------------------------
 
 ## pull mysql image to local docker repo from docker hub.
 docker pull mysql:8.4.8
@@ -22,39 +19,103 @@ docker pull mysql:8.4.8
 ## create network
 docker network create ms_net
 
-## create Java app image to local docker repo.
+## create image to local docker repo.
 docker build --no-cache -t account-service_i:1.0 .
 
-## create Java app image to local docker repo.
+## create image to local docker repo.
 docker build --no-cache -t card-service_i:1.0 .
 
-## create Java app image to local docker repo.
+## create image to local docker repo.
 docker build --no-cache -t loan-service_i:1.0 .
+
+## create image to local docker repo.
+docker build --no-cache -t config-server_i:1.0 .
+
+## create image to local docker repo.
+docker build --no-cache -t eureka-server_i:1.0 .
 
 ## build image by maven without dockerfile and logs are stored in file.
 mvn clean spring-boot:build-image -DskipTests 2>&1 | tee /mnt/d/_ms/build.log &
 
-## list image repo
+
+## list image from local repository
 docker image ls
 
+## list all running containers
+docker ps
 
-
-
+## list all containers with details (container id, image, created, status, port, and name)
+docker ps -a 
 
 ################################ running container from images
 
 ## running mysql using docker and with volume ##################
 docker run -d -p 3306:3306 --name mysql_c -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=account_db -v mysql_data:/var/lib/mysql --network ms_net  mysql:8.4.8
+docker run -d -p 3307:3307 --name mysql_c -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=account_db -v mysql_data:/var/lib/mysql --network ms_net  mysql:8.4.8
+docker run -d -p 3308:3308 --name mysql_c -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=account_db -v mysql_data:/var/lib/mysql --network ms_net  mysql:8.4.8
 
 
 ## starting new container (spring boot app)
-docker run -p 8081:8081 --name account-service_c --network ms_net account-service_i:1.0
+docker run -p 8070:8070 --name eureka_server --network ms_net eureka-server_i:1.0
+docker run -p 8071:8071 --name config_server --network ms_net config-server_i:1.0
+docker run -p 8081:8081 --name account-service --network ms_net account-service_i:1.0
+docker run -p 8082:8082 --name card_service --network ms_net card-service_i :1.0
+docker run -p 8083:8083 --name loan_service --network ms_net loan-service_i:1.0
+
+
+
+
 
 ################################# running with docker compose
 
+###### it will start container if avialable, otherwise create container and start it.
 docker compose up
+
+###### it will start container if avialable, otherwise if container not avialable it will throw error
+docker compose start
+
+###### it will stop containers if running, otherwise if container not avialable it will throw error
+docker compose stop
+
+###### it will start container if avialable, otherwise create container and start it.
+docker compose down
+
 
 docker compose logs
 
 
-docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4-management
+###################################
+mvn clean install -DskipTests
+
+docker image ls
+
+
+## remove container.
+docker rm 268b5f32563f 91c702e4e42f 03a2d94ff3e0 3b6325aa2209 53de158ef03c
+
+
+## remove container.
+docker rmi  7f8c0fa247d3 c723136e5cbb  f7b30c361148 b6a97f55c6a9 da422c06c8c4
+
+
+docker run -p -d --name eureka_server --network ms_net eureka-server_i:1.0
+docker run -p -d --name config_server --network ms_net config-server_i:1.0
+docker run -p -d --name account-service --network ms_net account-service_i:1.0
+docker run -p -d --name card_service --network ms_net card-service_i :1.0
+docker run -p -d --name loan_service --network ms_net loan-service_i:1.0
+
+
+
+--process for creating docker image ----------------------------------------------
+
+mvn clean install -DskipTests
+
+
+
+
+
+
+Goal 				Command										Primary Flags
+New Container		docker run -it <image> <shell>			-it (Interactive + TTY)
+Existing Stopped	docker start -ai <name>					-ai (Attach + Interactive)
+Existing Running	docker exec -it <name> <shell>			-it (Interactive + TTY)

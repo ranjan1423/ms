@@ -7,8 +7,12 @@ spring:
     name: config-server
 
   profiles:
+    # using native it will search for configuration files in defined location. either on one file location or on classpath.
     active: native
 
+  ##################################################
+  # Spring Cloud Config Server to pick files from specified location.
+  ##################################################
   cloud:
     config:
       server:
@@ -17,3 +21,29 @@ spring:
 
 encrypt:
   key: ranjan14
+
+##################################################
+# Actuator Properties
+##################################################
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+    # used for graceful shutdown using : http://{{service-name}}/actuator/shutdown
+    shutdown:
+      access: unrestricted
+
+  # actuator/health : http://{{service-name}}/actuator/health
+  health:
+    ping:
+      enabled: true
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true

@@ -1,0 +1,83 @@
+server:
+  port: 8072
+
+spring:
+
+  application:
+    name: api-gateway
+
+  profiles:
+    active: dev
+
+  cloud:
+    # telling to gateway to connect with eureka server and locate all details of microservices. once it will get the information form eureka server then it will do the routing.
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              # this will allow to resolve ACCOUNT-SERVICE to account-service in url
+              lower-case-service-id: true
+              # true : enable default behavior, we can access it http://{{apg_url}}:{{apg_port}}/account-service/api/create
+              # false : disabled default behavior, we can't access it http://{{apg_url}}:{{apg_port}}/account-service/api/create
+              #         now we can access http://{{apg_url}}:{{apg_port}}/ms/account-service/api/create
+              enabled: false
+
+
+    # this config will try for config server to respond and get the cache data.
+#    gateway:
+#      server:
+#        webflux:
+#          enabled: true
+#          discovery:
+#            locator:
+#              lower-case-service-id: true
+
+
+##################################################
+# Actuator Properties
+##################################################
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+    # used for graceful shutdown using : http://{{service-name}}/actuator/shutdown
+    shutdown:
+      access: unrestricted
+
+    #
+    gateway:
+      access: read_only
+
+  # actuator/health : http://{{service-name}}/actuator/health
+  health:
+    ping:
+      enabled: true
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+
+  # enable ifo for actuator/info
+  info:
+    env:
+      enabled: true
+
+# actuator/info : http://{{service-name}}/actuator/info
+info:
+  app:
+    name: "api-gateway"
+    description: "this is api-gateway server."
+
+# enabling logging for Debug
+logging:
+  level:
+    com:
+      ms:
+        apigateway: DEBUG
